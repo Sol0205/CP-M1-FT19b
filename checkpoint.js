@@ -17,7 +17,7 @@ const {
 
 /*
 * EJERCICIO 1
-TODO: TERMINADO
+
 *
 * Implementar de forma RECURSIVA el método Newton-Raphson. Este método es utilizado para aproximar
 * la raiz cuadrada de un número entero positivo.
@@ -55,18 +55,13 @@ TODO: TERMINADO
 *
 * */
 function newtonRaphson(x, count){
-  if (x < 0 || x % 1 !==0) return -1;
-  if (count === 1) { 
-    return (x/2 + (x/(x/2)))/2;
-  }
-  let va = newtonRaphson(x, count - 1);
-  return (va +(x/va))/2;
+
 }
 
 /*
 * EJERCICIO 2
 *
-TODO: TERMINADO
+
 * A partir de una formula matematica, encontrar y determinar si los parentesis de la misma se encuentran balanceados.
 * Decimos que los parentesis de una formula son balanceados si y solo si por cada ( hay un ), se debe respetar
 * el orden indicado, es decir, primero ( y luego ), )( no es una combinacion valida.
@@ -87,26 +82,13 @@ TODO: TERMINADO
 * */
 function balanced(string) {
   // Tu código aca:
-  let contador = 0;
-  for (let i = 0; i < string.length; i++){
-    if (string[i] == '('){
-      contador++
-    }
-    if(string[i] == ')'){
-      if(!contador){
-        contador++
-      }else{
-        contador--
-      }
-    }
-  }
-  return contador;
+  
 }
 
 
 /*
 * EJERCICIO 3
-TODO: TERMINADO
+
 *
 * Implementar el método compressList dentro del prototype de LinkedList que deberá devolver una nueva lista
 * en donde cada elemento se obtiene de aplicar la funcion a dos nodos consecutivos. Si la lista tiene un unico
@@ -131,34 +113,15 @@ TODO: TERMINADO
 * */
 LinkedList.prototype.compressList = function(call) {
   // Tu código aca:
-
-  let newList = new LinkedList();
-  let current = this.head;
-
-  if (current === null){
-    return undefined;
-  }
-  else if (!current.next) {
-    newList.add(this.head.value) 
-    return newList
-  }
-
-  while (current.next !== null){
-    let cont = call(current.value, current.next.value)
-    newList.add(cont)
-
-    if (current.next.next !== null){
-      current = current.next.next;
-    }else{
-      return newList;
-    }
-  }return newList
+  
 };
 
 
 /*
 * EJERCICIO 4
-*
+* -- A MIRAR --
+
+
 * Implementar el método removeFrom dentro del prototype de LinkedList que deberá modificar la lista
 * de forma tal que el elemento en el indice indicado (recibido por parametro) sea eliminado de la misma.
 *
@@ -206,7 +169,6 @@ LinkedList.prototype.removeFrom = function(num){
 /*
 * EJERCICIO 5
 *
-TODO "TERMINADO"
 * Implementar el método insertInOrder dentro del prototype de LinkedList que deberá agregar un elemento
 * a la lista ordenada (MAYOR a MENOR).
 *
@@ -222,23 +184,12 @@ TODO "TERMINADO"
 
 
 LinkedList.prototype.insertInOrder = function(value){
-    // Tu código aca:
-    let node = new Node(value);
-  if(!this.head || this.head.value <= node.value){
-  node.next= this.head;
-  this.head = node;
-  }else {
-    let current = this.head;
-    while(current.next && current.next.value >= node.value)
-    current = current.next;
-    node.next = current.next
-    current.next = node
-  }
+  // Tu código aca:
+
 };
 
 /*
 * EJERCICIO 6
-TODO: TERMINADO
 *
 * Utilizando un STACK, y dada una frase invertir palabra por palabra de la misma.
 * NO SE PUEDEN USAR METODOS DE ARRAY. 
@@ -254,32 +205,13 @@ TODO: TERMINADO
  function reverseWords(str){
   // var s = "Hello Word";
   // return s.split("").reverse().join("");
-  let strReverse = ""
-  for(let i =0; i<= str.length; i++){
-    let j = i
-    while (str[i+1] === " "  && j >= 0){   
-       if (str[j] !== " " && str[j] !== undefined){
-        strReverse += str[j]
-         j--
-      } if (str[j] === " " ||str[j] === undefined){
-        strReverse += " "  
-        j= j- str.length
-    }
-
-    }
-    while (i=== (str.length-1) && j >0){
-      if (str[j] === " "){
-        j =0
-      }else {strReverse += str[j]; j--}
-    }
-    } return strReverse
+  
 }
 
 
 
 /*
 * EJERCICIO 7
-TODO "TERMINADO"
 *
 * Implemtnar la funcion height dentro del prototype de BinarySearchTree que calcule la altura de un arbol.
 *
@@ -300,9 +232,7 @@ TODO "TERMINADO"
 * */
 
 BinarySearchTree.prototype.height = function(){
-  let leftHight = !this.left ? 0 : this.left.height();
-    let rightHight = !this.right ? 0 : this.right.height();
-    return 1 + Math.max(leftHight, rightHight);
+
 };
 
 /*
@@ -331,20 +261,7 @@ BinarySearchTree.prototype.height = function(){
 * */
 
 BinarySearchTree.prototype.balanced = function(){
-  if (!this.value) {
-    return true;
-  }
 
-  const leftHeight = this.height(this.left);
-  const rightHeight = this.height(this.right);
-
-  if (Math.abs(leftHeight - rightHeight) <= 1) {
-    return true;
-  }
-
-  else{
-    return false;
-  }
 };
 
 /* EJERCICIO 9
